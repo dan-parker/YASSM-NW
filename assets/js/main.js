@@ -49,6 +49,8 @@ var ciLayer = L.canvasIconLayer({}).addTo(map);
 	var iconSmall = L.icon({iconUrl: 'assets/img/small.png',iconSize: [3, 3],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
 	var iconTerminal = L.icon({iconUrl: 'assets/img/terminal.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
 	var iconNuke = L.icon({iconUrl: 'assets/img/nuke.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
+	var iconSafe = L.icon({iconUrl: 'assets/img/safe.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
+
 	var skip = 0;  
 	do {
 		switch(true) {
@@ -59,7 +61,7 @@ var ciLayer = L.canvasIconLayer({}).addTo(map);
 			thisIcon = iconMedium;
 			break;
 		case (MarkerData[i].name == "Low"):
-			thisIcon = iconSmall;
+			skip = 1;
 			break;
 		case (MarkerData[i].name == "Terminal"):
 			thisIcon = iconTerminal;
@@ -67,7 +69,11 @@ var ciLayer = L.canvasIconLayer({}).addTo(map);
 		case (MarkerData[i].name == "Nuke Briefcase"):
 			thisIcon = iconNuke;
 			break;
-		case (MarkerData[i].name == "Radiation Barrel"):
+		case (MarkerData[i].name == "Safe"):
+			thisIcon = iconSafe;
+			break;
+		case (MarkerData[i].name == "Power Armor"):
+			thisIcon = iconNuke;
 			skip = 1;
 			break;
 		case (MarkerData[i].name == "Bobblehead"):
@@ -117,6 +123,10 @@ function RemapCoord(y,x,z){
             {
                 label: 'Briefcase',
                 html: '<img src="assets/img/nuke.png" height="5" width="5">'
+            },
+            {
+                label: 'Safe',
+                html: '<img src="assets/img/safe.png" height="5" width="5">'
             },
 	]
         }],
