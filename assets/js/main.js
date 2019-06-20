@@ -50,6 +50,7 @@ var ciLayer = L.canvasIconLayer({}).addTo(map);
 	var iconTerminal = L.icon({iconUrl: 'assets/img/terminal.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
 	var iconNuke = L.icon({iconUrl: 'assets/img/nuke.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
 	var iconSafe = L.icon({iconUrl: 'assets/img/safe.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
+	var iconPA = L.icon({iconUrl: 'assets/img/pa.png',iconSize: [4, 4],iconAnchor: [8, 8],shadowUrl: 'assets/img/shadow.png',shadowSize: [5,5],shadowAnchor:[10,10]});
 
 	var skip = 0;  
 	do {
@@ -73,8 +74,7 @@ var ciLayer = L.canvasIconLayer({}).addTo(map);
 			thisIcon = iconSafe;
 			break;
 		case (MarkerData[i].name == "Power Armor"):
-			thisIcon = iconNuke;
-			skip = 1;
+			thisIcon = iconPA;
 			break;
 		case (MarkerData[i].name == "Bobblehead"):
 			skip = 1;
@@ -127,6 +127,10 @@ function RemapCoord(y,x,z){
             {
                 label: 'Safe',
                 html: '<img src="assets/img/safe.png" height="5" width="5">'
+            },
+            {
+                label: 'Power Armor',
+                html: '<img src="assets/img/pa.png" height="5" width="5">'
             },
 	]
         }],
